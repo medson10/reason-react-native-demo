@@ -1,49 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react'
+import { View, Text } from 'react-native'
+import { ApolloProvider } from 'react-apollo'
+import { Provider as PaperProvider } from 'react-native-paper'
+import { app as StackRouter } from './re/App.bs'
+import apolloClient from './apollo'
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+export default class App extends Component {
+  state = {
+    hasError: false,
+  }
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+  componentDidCatch = () => {
+    this.setState({ hasError: true })
+  }
 
-type Props = {};
-export default class App extends Component<Props> {
   render() {
+    if (this.state.hasError) {
+      return (
+        <View>
+          <Text>Error!</Text>
+        </View>
+      )
+    }
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+      <PaperProvider>
+        <ApolloProvider client={apolloClient}>
+          <StackRouter />
+        </ApolloProvider>
+      </PaperProvider>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
