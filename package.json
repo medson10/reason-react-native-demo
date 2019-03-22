@@ -3,19 +3,43 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "rn:link": "react-native link",
+    "bs:build": "bsb -make-world -clean-world",
+    "bs:watch": "yarn bs:build -w",
+    "ios": "open ios/CountriesGuide.xcworkspace",
+    "ios:clear": "cd ios && rm -rf build",
     "test": "jest"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-client": "^2.5.1",
+    "apollo-link-schema": "^1.2.2",
+    "bs-epitath": "^1.0.1",
+    "bs-platform": "^4.0.18",
+    "bs-react-native": "^0.10.0",
+    "bs-react-native-paper": "^5.0.0-alpha.1",
+    "bs-react-navigation": "^0.2.0",
     "react": "16.8.3",
-    "react-native": "0.59.1"
+    "react-apollo": "^2.5.2",
+    "react-native": "0.59.1",
+    "react-native-gesture-handler": "^1.1.0",
+    "react-native-paper": "^2.14.0",
+    "react-native-vector-icons": "^6.4.2",
+    "reason-apollo": "^0.15.2",
+    "reason-react": "^0.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/runtime": "^7.4.0",
     "babel-jest": "^24.5.0",
+    "bs-log": "^0.0.9",
+    "graphql_ppx": "^0.2.8",
     "jest": "^24.5.0",
+    "let-anything": "^1.0.3",
     "metro-react-native-babel-preset": "^0.53.1",
+    "prettier": "1.16.4",
     "react-test-renderer": "16.8.3"
   },
   "jest": {

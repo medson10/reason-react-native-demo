@@ -1,0 +1,36 @@
+{
+  "name": "CountriesGuide",
+  "namespace": true,
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": [
+    "bs-react-native",
+    "reason-react",
+    "reason-apollo",
+    "bs-react-native-paper",
+    "bs-epitath",
+    "bs-react-navigation"
+  ],
+  "sources": [
+    {
+      "dir": "re",
+      "subdirs": [{ "dir": "scenes" }, { "dir": "components" }]
+    }
+  ],
+  "refmt": 3,
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "warnings": {
+    "error": "+8"
+  },
+  "suffix": ".bs.js",
+  "ppx-flags": [
+    "let-anything/lib/bs/native/let_anything.native",
+    "bs-log/ppx",
+    "graphql_ppx/ppx"
+  ]
+}
